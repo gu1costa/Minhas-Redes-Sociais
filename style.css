@@ -1,0 +1,205 @@
+/*RESET CSS*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*medida dos elementos em relação á borda*/
+}
+
+/* iniciando o light mode */
+:root{    /* dark mode */
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.50);
+  --surface-color: rgba(255, 255, 255, 0.10);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --social-link-hover: rgba(255, 255, 255, 0.20);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light{   /* white mode */
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.50);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --social-link-hover: rgba(0, 0, 0, 0.10);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body *{
+  font-family: "Inter", sans-serif;
+  color:var(--text-color); /*white*/  
+  /*
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal; padrão
+  */
+}
+
+body{
+  /*
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+
+  /*background: color image repeat position/size*/
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+#container{
+  /*
+  border:1px solid red;
+  */
+  width: 360px;
+  /*height: 712px; height retirado para ter uma altura fluída*/
+
+  /*
+  margin-right:auto;
+  margin-left:auto; 
+  */
+  
+  margin: auto;
+  margin-top:56px;
+  /*margin: top right bottom left*/
+  margin: 56px auto 0px;
+
+  padding: 0 24px;
+}
+
+/*
+#profile{
+  border:1px solid blue;
+  height: 192px;
+}
+apenas para visualização da caixa no box model*/
+
+#profile{
+  text-align: center; /*todos os elementos com display inline aceitam que o elemento pai receba a propriedade text-align para alinhá-lo*/
+
+  padding: 24px;
+}
+
+#profile img{
+width: 112px;
+/*height:112px; princípio da altura fluída*/
+}
+
+#profile p{
+  font-weight: 500;
+  font-size: 16px; /*padrão*/
+  line-height:24px;
+  margin-top: 8px;
+}
+
+#switch{
+  position: relative; /*o button está com posicionamento absoluto relativo ao #switch(pai)*/
+  width: 64px; /* mesma largura do span */
+  margin: 4px auto; /*para displays block*/
+}
+
+#switch button{
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  /* posicionamento absoluto */
+  position: absolute;
+  z-index: 1;
+  transform: translateY(-50%); /*tira 50% do topo*/
+  top: 50%; /*reposiciona 50% do topo*/
+  left: 0;
+}
+
+.light #switch button{ /*light mode*/
+  right: 0;
+  left: initial;
+}
+
+#switch span{
+  width: 64px;
+  display: block; /*display inline não aceita largura*/
+  height: 24px;
+  background-color: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 9999px;
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* links */
+ul{
+  list-style: none; /* retira o estilo bulleted list */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a{
+  /*
+  border: 1px solid red;
+  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border:1px solid var(--stroke-color);
+  border-radius: 8px;
+  -webkit-backdrop-filter: blur(4px);
+
+  /*estilizando o texto*/
+  text-decoration: none; /*tira as linhas abaixo do conteúdo do elemento*/
+  font-weight: 500;
+
+  transition: background 0.3s;
+}
+
+/* pseudo-selector */
+ul li a:hover{
+  border: 1.5px solid var(--stroke-color);
+  background-color:var(--surface-color-hover);
+  backdrop-filter: blur(4px);
+}
+
+#logos{
+  padding: 24px 0;
+  display: flex;
+  flex-direction: row; /*padrão*/
+  /*gap: 32px; posteriormente 16px*/
+  justify-content: center;
+  font-size: 24px;
+}
+
+/*
+#logos ion-icon{
+  width: 24px;
+  height: 24px;
+}
+*/
+
+#logos a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+
+  transition: background 0.3s;
+  border-radius: 50%;
+}
+
+#logos a:hover{
+  background: var(--social-link-hover);
+  padding: 16px;
+}
+
+footer{
+  padding: 24px 0;
+  text-align: center;
+
+  font-size: 14px;
+  font-weight: 400;
+}
