@@ -113,11 +113,15 @@ width: 112px;
   transform: translateY(-50%); /*tira 50% do topo*/
   top: 50%; /*reposiciona 50% do topo*/
   left: 0;
+  animation: slide-out .4s forwards;
+}
+
+#switch button:hover{
+  outline: 8px solid var(--social-link-hover);
 }
 
 .light #switch button{ /*light mode*/
-  right: 0;
-  left: initial;
+  animation: slide-in .4s forwards;
 }
 
 #switch span{
@@ -214,5 +218,26 @@ footer{
 
   .light{
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animation */
+@keyframes slide-in{
+  from{
+    left: 0;
+  }
+
+  to{
+    left: 50%;
+  }
+}
+
+@keyframes slide-out{
+    from{
+    left: 50%;
+  }
+
+  to{
+    left: 0;
   }
 }
